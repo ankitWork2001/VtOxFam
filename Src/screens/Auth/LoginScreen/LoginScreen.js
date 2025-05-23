@@ -14,12 +14,23 @@ import { RFValue } from 'react-native-responsive-fontsize';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import LoginHeader from '../../../components/Header/LoginHeader/LoginHeader';
 import { SCREENS } from '../../../navigation/Route/screens';
+import { useDispatch } from 'react-redux';
+import { loginSuccess } from '../../../redux/slices/authScreen/authScreens';
 
 const LoginScreen = ({ navigation }) => {
     const { height } = Dimensions.get('window');
-
     const [password, setPassword] = useState('');
     const [secureText, setSecureText] = useState(true);
+    const [email, setEmail] = useState('');
+    const dispatch = useDispatch();
+
+    const handleLogin = () => {
+        const dummyUser = {
+            email: email,
+            name: 'Murtaza',
+        };
+        dispatch(loginSuccess(dummyUser));
+    };
 
     return (
         <SafeAreaView style={styles.container}>
@@ -34,7 +45,12 @@ const LoginScreen = ({ navigation }) => {
                     <Text style={styles.welcomeText}>Welcome Back!</Text>
 
                     <Text style={styles.label}>E-Mail Address / Phone Number</Text>
-                    <TextInput style={styles.input} placeholder="Enter email or phone" />
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Enter email or phone"
+                        value={email}
+                        onChangeText={setEmail}
+                    />
 
                     <Text style={styles.label}>Password</Text>
                     <View style={styles.passwordContainer}>
@@ -61,7 +77,7 @@ const LoginScreen = ({ navigation }) => {
                         <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={styles.loginButton}>
+                    <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
                         <Text style={styles.loginButtonText}>Log In</Text>
                     </TouchableOpacity>
 
@@ -96,10 +112,8 @@ const LoginScreen = ({ navigation }) => {
 
                     <View style={styles.signUpPromptContainer}>
                         <Text style={styles.signUpPrompt}>Don't Have Account?</Text>
-                        <TouchableOpacity>
-                            <Text style={styles.signInLink}
-                                onPress={() => navigation.navigate(SCREENS.SIGNUP)}
-                            > Sign Up</Text>
+                        <TouchableOpacity onPress={() => navigation.navigate(SCREENS.SIGNUP)}>
+                            <Text style={styles.signInLink}> Sign Up</Text>
                         </TouchableOpacity>
                     </View>
                 </ScrollView>

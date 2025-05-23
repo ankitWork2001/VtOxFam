@@ -2,7 +2,7 @@ import React from "react";
 import { View } from "react-native";
 import { Text } from "react-native-gesture-handler";
 
-const ReferralScreen = () => {
+const ProfileScreen = () => {
     return (
         <View>
             <Text>ProfileScreen</Text>
@@ -10,4 +10,4 @@ const ReferralScreen = () => {
     )
 }
 
-export default ReferralScreen;
+export default ProfileScreen;
