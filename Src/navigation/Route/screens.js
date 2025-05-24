@@ -13,4 +13,8 @@ export const SCREENS = {
     PROFILE: 'Profile',
     REFERRAL: 'Referrals',
 
+    //Referral Screen
+
+    REFERRALEARNING: 'ReferralEarningsScreen'
+
 };

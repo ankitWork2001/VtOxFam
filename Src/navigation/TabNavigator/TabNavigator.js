@@ -3,15 +3,12 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { SCREENS } from "../Route/screens";
 import HomeScreen from "../../screens/Home/HomeScreen/HomeScreen";
 import SpinScreen from "../../screens/SpinWheel/SpinScreen/SpinScreen";
-import ReferralScreen from "../../screens/Referral/ReferralScreen/ReferralScreen";
 import InvestmentScreen from "../../screens/Investment/InvestmentPlansScreen";
 import ProfileScreen from "../../screens/Profile/ProfileScreen/ProfileScreen";
-import Icon from "react-native-vector-icons/Ionicons";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-
-
+import { ReferralStack } from "../AuthNavigator/AuthNavigator";
 
 const Tab = createBottomTabNavigator();
 
@@ -25,6 +22,9 @@ const TabNavigator = () => {
                 tabBarStyle: {
                     backgroundColor: "#2c7a36",
                     height: 60,
+                    borderBottomLeftRadius: 28,
+                    borderBottomRightRadius: 28,
+                    borderWidth: 1,
                 },
 
                 tabBarActiveTintColor: "black",
@@ -56,7 +56,7 @@ const TabNavigator = () => {
             <Tab.Screen name={SCREENS.HOMESCREEN} component={HomeScreen} />
             <Tab.Screen name={SCREENS.SPINS} component={SpinScreen} />
             <Tab.Screen name={SCREENS.INVESTMENT} component={InvestmentScreen} />
-            <Tab.Screen name={SCREENS.REFERRAL} component={ReferralScreen} />
+            <Tab.Screen name={SCREENS.REFERRAL} component={ReferralStack} />
             <Tab.Screen name={SCREENS.PROFILE} component={ProfileScreen} />
         </Tab.Navigator>
     );
