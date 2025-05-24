@@ -151,12 +151,14 @@ const styles = StyleSheet.create({
         zIndex: 10,
         elevation: 10
     },
+
     signInButtonText: {
         color: '#fff',
         textAlign: 'center',
         fontSize: RFValue(14),
         fontWeight: '400'
     },
+
     DownIcon: {
         position: 'absolute',
     },

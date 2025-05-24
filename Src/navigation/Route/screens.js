@@ -13,4 +13,15 @@ export const SCREENS = {
     PROFILE: 'Profile',
     REFERRAL: 'Referrals',
 
+    //Referral Screen
+    REFERRALEARNING: 'ReferralEarningsScreen',
+
+    //personal details
+    PERSONALDETAILS: 'PersonalDetails',
+    WALLETSCREEN: 'WalletInfoScreen',
+    TRANSACTION: 'TransactionHistoryScreen',
+    SETTINGS: 'SettingsScreen',
+    WITHDRAW: 'WithdrawScreen',
+    OTPSCREEN: 'OtpScreen',
+
 };

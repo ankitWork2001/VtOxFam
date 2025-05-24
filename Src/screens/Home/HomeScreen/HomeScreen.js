@@ -20,10 +20,10 @@ import { useNavigation } from '@react-navigation/native';
 import HomeHeader from '../../../components/Header/HomeHeader/HomeHeader';
 import { SCREENS } from '../../../navigation/Route/screens';
 
-
-const HomeScreen = ({ navigation }) => {
+const HomeScreen = () => {
     const { height, width } = Dimensions.get('window');
     const insets = useSafeAreaInsets();
+    const navigation = useNavigation();
 
     return (
         <ScrollView contentContainerStyle={[styles.scrollViewContent, { paddingBottom: insets.bottom + 100 }]}>
@@ -38,7 +38,7 @@ const HomeScreen = ({ navigation }) => {
                             <Icon name='upload' size={26} color='#FFFFFF' />
                             <Text style={styles.IconText}>DEPOSIT</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.IconWithdraw}>
+                        <TouchableOpacity onPress={() => navigation.navigate('WithdrawScreen')} style={styles.IconWithdraw}>
                             <Icon name='download' size={26} color='#FFFFFF' />
                             <Text style={styles.IconText}>WITHDRAW</Text>
                         </TouchableOpacity>
